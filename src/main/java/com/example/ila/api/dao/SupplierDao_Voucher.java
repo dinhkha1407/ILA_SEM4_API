@@ -46,7 +46,7 @@ public class SupplierDao_Voucher implements IDataRepository<Voucher> {
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
 			jdbcTemplateObject.update(StringValue.Supplier_UpdateVoucher,
-				 modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getUsercreate(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.getIsActive());
+				 modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getUsercreate(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.getIsActive(),modelUpdate.getId());
 			Check = true;
 		} catch (Exception e) {
 			Check = false;

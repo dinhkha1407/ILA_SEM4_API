@@ -45,7 +45,7 @@ private static AdminDao_Voucher instance = null;
 		boolean check = false;
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
-			jdbcTemplateObject.update(StringValue.Admin_UpdateVoucher, modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.getIsActive());
+			jdbcTemplateObject.update(StringValue.Admin_UpdateVoucher, modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.getIsActive(), modelUpdate.getId());
 			 check = true;
 		} catch (Exception e) {
 			check = false;

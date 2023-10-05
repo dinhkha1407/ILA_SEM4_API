@@ -268,7 +268,7 @@ public class StringValue {
 	public static final String Supplier_InsertVoucher = "insert into Voucher(id,condition,discount,usercreate,startDate,endDate,isActive) values (?,?,?,?,?,?,?)";
 
 	// update voucher
-	public static final String Supplier_UpdateVoucher = "update Voucher SET   condition = ? , discount = ? , usercreate = ? , startDate = ? , endDate = ? , isActive = ? where id = ?";
+	public static final String Supplier_UpdateVoucher = "update Voucher SET condition = ? , discount = ? , usercreate = ? , startDate = ? , endDate = ? , isActive = ? where id = ?";
 
 	// filter voucher sắp diễn ra
 	public static final String Supplier_FilterVoucher1 = "select *" + "	from Voucher "
