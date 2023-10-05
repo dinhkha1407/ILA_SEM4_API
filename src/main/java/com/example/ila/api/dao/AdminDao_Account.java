@@ -11,16 +11,16 @@ import com.example.ila.api.models.Account;
 import com.example.ila.api.utils.AccountRowMapper;
 import com.example.ila.api.utils.StringValue;
 
-public class AdminDao_SelectAcc implements IDataRepository<Account> {
+public class AdminDao_Account implements IDataRepository<Account> {
 
-private static AdminDao_SelectAcc instance = null;
+private static AdminDao_Account instance = null;
 	
 	@Autowired
 	private  JdbcTemplate jdbcTemplateObject;
 
-	public static AdminDao_SelectAcc getInstance() {
+	public static AdminDao_Account getInstance() {
 		if (instance == null) {
-			instance = new AdminDao_SelectAcc();
+			instance = new AdminDao_Account();
 		}
 		return instance;
 	}
@@ -36,8 +36,16 @@ private static AdminDao_SelectAcc instance = null;
 
 	@Override
 	public boolean Update(Account modelUpdate) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean check = false;
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			jdbcTemplateObject.update(StringValue.Admin_UpdateAccountUser, modelUpdate.isActive(),modelUpdate.getId());
+			check = true;
+		} catch (Exception e) {
+			check = false;
+			System.out.println("ERROR Update account User");
+		}
+		return check;
 	}
 
 	@Override
@@ -64,5 +72,6 @@ private static AdminDao_SelectAcc instance = null;
 		}
 		return null;
 	}
+	
 
 }

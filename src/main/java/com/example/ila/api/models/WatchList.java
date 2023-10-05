@@ -7,6 +7,13 @@ public class WatchList {
 	private int idProduct;
 	private int idAccount;
 	private Date createDate;
+	private int countWatch;
+	public int getCountWatch() {
+		return countWatch;
+	}
+	public void setCountWatch(int countWatch) {
+		this.countWatch = countWatch;
+	}
 	public int getId() {
 		return id;
 	}

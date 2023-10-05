@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -13,7 +14,11 @@ import com.example.ila.api.ModelView.ProductView;
 import com.example.ila.api.config.DatabaseConnect;
 import com.example.ila.api.interfaces.IDataRepository;
 import com.example.ila.api.models.Category;
+import com.example.ila.api.models.Product;
+import com.example.ila.api.models.Review;
+import com.example.ila.api.models.WatchList;
 import com.example.ila.api.utils.CategoryRowMapper;
+import com.example.ila.api.utils.ProductRowMapper;
 import com.example.ila.api.utils.StringValue;
 
 
@@ -61,7 +66,23 @@ private static SupplierDao_Product instance = null;
 		}
 		return Check;
 	}
-
+	
+	
+	public boolean UpdateActiveProd(ProductView modelUpdate) {
+		boolean Check = false;
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			jdbcTemplateObject.update(StringValue.Supplier_UpdateActiveProd,
+					modelUpdate.getIsActive(), modelUpdate.getId());
+			Check = true;
+		} catch (Exception e) {
+			Check = false;
+			System.out.println("ERROR Update PROD Active ");
+		}
+		return Check;
+	}
+	
+	
 	@Override
 	public boolean Delete(ProductView modelDelete) {
 		// TODO Auto-generated method stub
@@ -124,7 +145,7 @@ private static SupplierDao_Product instance = null;
 		return ls;
 	}
 
-	public List<ProductView>SearchFilterActive(int isActive){
+	public List<ProductView>SearchFilterActive(int isActive, int idSupplier){
 		List<ProductView> ls = new ArrayList<>();
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
@@ -134,6 +155,7 @@ private static SupplierDao_Product instance = null;
 						@Override
 						public ProductView mapRow(ResultSet rs, int rowNum) throws SQLException {
 							ProductView p = new ProductView();
+							p.setId(rs.getInt("id"));
 							p.setTitle(rs.getString("title"));
 							p.setImage(rs.getString("image"));
 							p.setImage1(rs.getString("image1"));
@@ -148,7 +170,7 @@ private static SupplierDao_Product instance = null;
 							return p;
 						}
 				
-			}, isActive );
+			}, isActive , idSupplier);
 			ls.addAll(prod);
 		} catch (Exception e) {
 			System.out.println("ERROR Filter Active");
@@ -251,6 +273,78 @@ private static SupplierDao_Product instance = null;
 		return ls;
 	}
 	
+	public int CountFilterActive (int idSupplier, int isActive) {
+		/*
+		 * Product ls = new Product(); try {
+		 * 
+		 * jdbcTemplateObject = new
+		 * JdbcTemplate(DatabaseConnect.getInstance().dbDataSource()); ls =
+		 * jdbcTemplateObject.queryForObject(StringValue.Supplier_CountFilterActive, new
+		 * ProductRowMapper(),
+		 * 
+		 * idSupplier, isActive ); } catch (Exception e) {
+		 * 
+		 * System.out.println("ERROR Count Filter Active"); }
+		 * 
+		 * return 0;
+		 */
+		Product ls = new Product();
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			ls = jdbcTemplateObject.queryForObject(StringValue.Supplier_CountFilterActive,
+					new RowMapper<Product>() {
+				@Override
+				public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					Product p = new Product();
+					p.setCountID(rs.getInt("countID"));
+					return p;
+				}
+			},
+					idSupplier, isActive);
+		} catch (DataAccessException e) {
+			System.out.println("ERROR Count Filter Active: " + e.getMessage());
+			return 0;
+		} catch (Exception e) {
+			System.out.println("ERROR Count Filter Active: " + e.getMessage());
+			return 0;
+		
+		}
+		return ls.getCountID();
+	}
 	
 	
-}
+	//dem so luong yeu thich
+	public int Supplier_WatchList(int idProduct ) {
+		WatchList r = new WatchList();
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			r = jdbcTemplateObject.queryForObject(StringValue.Supplier_WatchList,
+					new RowMapper<WatchList>() {
+				@Override
+				public WatchList mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					WatchList p = new WatchList();
+					p.setCountWatch(rs.getInt("countWatch"));
+					return p;
+				}
+			},
+					idProduct);
+		} catch (DataAccessException e) {
+			System.out.println("ERROR Count WatchList : " + e.getMessage());
+			return 0;
+		} catch (Exception e) {
+			System.out.println("ERROR Count WatchList : " + e.getMessage());
+			return 0;
+		
+		}
+		return r.getCountWatch();
+	}
+	
+	
+	
+	
+}	
+	
+	
+

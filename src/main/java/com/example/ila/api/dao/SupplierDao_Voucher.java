@@ -31,7 +31,7 @@ public class SupplierDao_Voucher implements IDataRepository<Voucher> {
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
 			jdbcTemplateObject.update(StringValue.Supplier_InsertVoucher, 
-				modelInsert.getId(), modelInsert.getCoupon(), modelInsert.getCondition(), modelInsert.getDiscount(), modelInsert.getUsercreate(), modelInsert.getStartDate(), modelInsert.getEndDate(), modelInsert.isActive());
+				modelInsert.getId(), modelInsert.getCondition(), modelInsert.getDiscount(), modelInsert.getUsercreate(), modelInsert.getStartDate(), modelInsert.getEndDate(), modelInsert.getIsActive());
 			Check = true;
 		} catch (Exception e) {
 			Check = false;
@@ -46,19 +46,28 @@ public class SupplierDao_Voucher implements IDataRepository<Voucher> {
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
 			jdbcTemplateObject.update(StringValue.Supplier_UpdateVoucher,
-				modelUpdate.getCoupon(), modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getUsercreate(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.isActive());
+				 modelUpdate.getCondition(), modelUpdate.getDiscount(), modelUpdate.getUsercreate(), modelUpdate.getStartDate(), modelUpdate.getEndDate(), modelUpdate.getIsActive());
 			Check = true;
 		} catch (Exception e) {
 			Check = false;
-			System.out.println("ERROR Update PROD ");
+			System.out.println("ERROR Update Voucher");
 		}
 		return Check;
 	}
 
 	@Override
 	public boolean Delete(Voucher modelDelete) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean Check = false;
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			jdbcTemplateObject.update(StringValue.Supplier_DeleteVoucher,
+			 modelDelete.getId());
+			Check = true;
+		} catch (Exception e) {
+			Check = false;
+			System.out.println("ERROR Delete Voucher ");
+		}
+		return Check;
 	}
 
 	@Override

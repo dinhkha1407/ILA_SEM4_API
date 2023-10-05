@@ -21,7 +21,6 @@ public class AccountRowMapper implements RowMapper<Account>{
 			a.setName(rs.getString("name"));
 			a.setPhone(rs.getString("phone"));
 			a.setEmail(rs.getString("email"));
-			a.setAddress(rs.getString("address"));
 			a.setCreateDate(rs.getDate("createDate"));
 			a.setActive(rs.getBoolean("isActive"));
 			return a;

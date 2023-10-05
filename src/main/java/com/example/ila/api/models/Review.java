@@ -8,6 +8,8 @@ public class Review {
 	private int idProduct;
 	private int review;
 	private Date createDate;
+	private int countReview;
+	private int countFilter;
 	public int getId() {
 		return id;
 	}
@@ -38,18 +40,33 @@ public class Review {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Review(int id, int idAccount, int idProduct, int review, Date createDate) {
+	public int getCountReview() {
+		return countReview;
+	}
+	public void setCountReview(int countReview) {
+		this.countReview = countReview;
+	}
+	public int getCountFilter() {
+		return countFilter;
+	}
+	public void setCountFilter(int countFilter) {
+		this.countFilter = countFilter;
+	}
+	public Review(int id, int idAccount, int idProduct, int review, Date createDate, int countReview, int countFilter) {
 		super();
 		this.id = id;
 		this.idAccount = idAccount;
 		this.idProduct = idProduct;
 		this.review = review;
 		this.createDate = createDate;
+		this.countReview = countReview;
+		this.countFilter = countFilter;
 	}
 	public Review() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

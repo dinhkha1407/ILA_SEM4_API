@@ -18,7 +18,7 @@ public class DiscountRowMapper implements RowMapper<Discount> {
 		d.setDateEnd(rs.getDate("dateEnd"));
 		d.setIdProduct(rs.getInt("idProduct"));
 		d.setPriceSale(rs.getBigDecimal("priceSale"));
-		d.setStatus(rs.getBoolean("isStatus"));
+		d.setIsStatus(rs.getInt("isStatus"));
 		return d;
 	}
 

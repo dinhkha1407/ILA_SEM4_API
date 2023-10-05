@@ -14,10 +14,10 @@ public class InvoiceSupplierRowMapper implements RowMapper<InvoiceSupplier> {
 		InvoiceSupplier ins = new InvoiceSupplier();
 		ins.setId(rs.getInt("id"));
 		ins.setIdInvoice(rs.getInt("idInvoice"));
-		ins.setPriceVoucherA(rs.getBigDecimal("priceVoucherA"));
-		ins.setAmountReceived(rs.getBigDecimal("amountReceived"));
-		ins.setTotalA(rs.getBigDecimal("totalA"));
-		ins.setTotalS(rs.getBigDecimal("totalS"));
+		ins.setPrice(rs.getBigDecimal("price"));
+		ins.setCreateDate(rs.getDate("createDate"));
+		ins.setIdSupplier(rs.getInt("idSupplier"));
+		ins.setStatus(rs.getInt("status"));
 		return ins;
 	}
 

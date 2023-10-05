@@ -18,6 +18,7 @@ public class CartRowMapper implements RowMapper<Cart>{
 		c.setAmount(rs.getInt("Amount"));
 		c.setPrice(rs.getBigDecimal("Price"));
 		c.setStatus(rs.getBoolean("Status"));
+		c.setCountCart(rs.getInt("countCart"));
 		return c;
 	}
 

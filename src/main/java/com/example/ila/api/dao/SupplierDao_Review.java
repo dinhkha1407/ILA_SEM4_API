@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.example.ila.api.ModelView.ReviewView;
 import com.example.ila.api.config.DatabaseConnect;
 import com.example.ila.api.interfaces.IDataRepository;
+import com.example.ila.api.models.Product;
+import com.example.ila.api.models.Review;
 import com.example.ila.api.utils.StringValue;
 
 public class SupplierDao_Review implements IDataRepository<ReviewView> {
@@ -69,14 +72,15 @@ public class SupplierDao_Review implements IDataRepository<ReviewView> {
 							ReviewView rv = new ReviewView();
 							rv.setIdProduct(rs.getInt("idProduct"));
 							rv.setNameProd(rs.getString("nameProd"));
-							rv.setReview(rs.getInt("review"));
+							//rv.setReview(rs.getInt("review"));
 							rv.setAvgReview(rs.getFloat("avgReview"));
 							rv.setCountReview(rs.getInt("countReview"));
-							rv.setId(rs.getInt("id"));
+							//rv.setId(rs.getInt("id"));
 							return rv;
 						}
 			},idProduct);
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			System.out.println("ERROR get review");
 		}
 		return  r;
@@ -92,6 +96,7 @@ public class SupplierDao_Review implements IDataRepository<ReviewView> {
 						@Override
 						public ReviewView mapRow(ResultSet rs, int rowNum) throws SQLException {
 							ReviewView r = new ReviewView();
+							r.setIdProduct(rs.getInt("idProduct"));
 							r.setNameCus(rs.getString("nameCus"));
 							r.setReview(rs.getInt("review"));
 							r.setCreateDate(rs.getDate("createDate"));
@@ -101,6 +106,7 @@ public class SupplierDao_Review implements IDataRepository<ReviewView> {
 			}, idProduct );
 			ls.addAll(rv);
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			System.out.println("ERROR get detail review");
 		}
 		return ls;
@@ -130,6 +136,57 @@ public class SupplierDao_Review implements IDataRepository<ReviewView> {
 		return ls;
 	}
 	
+	public int Supplier_CountReview(int idProduct) {
+		Review r = new Review();
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			r = jdbcTemplateObject.queryForObject(StringValue.Supplier_CountReview,
+					new RowMapper<Review>() {
+				@Override
+				public Review mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					Review p = new Review();
+					p.setCountReview(rs.getInt("countReview"));
+					return p;
+				}
+			},
+					idProduct);
+		} catch (DataAccessException e) {
+			System.out.println("ERROR Count Review : " + e.getMessage());
+			return 0;
+		} catch (Exception e) {
+			System.out.println("ERROR Count Review : " + e.getMessage());
+			return 0;
+		
+		}
+		return r.getCountReview();
+	}
+	
+	public int Supplier_CountFilterReview(int idProduct , int review) {
+		Review r = new Review();
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			r = jdbcTemplateObject.queryForObject(StringValue.Supplier_CountFilterReview,
+					new RowMapper<Review>() {
+				@Override
+				public Review mapRow(ResultSet rs, int rowNum) throws SQLException {
+					// TODO Auto-generated method stub
+					Review p = new Review();
+					p.setCountFilter(rs.getInt("countFilter"));
+					return p;
+				}
+			},
+					idProduct, review);
+		} catch (DataAccessException e) {
+			System.out.println("ERROR Count Filter Review : " + e.getMessage());
+			return 0;
+		} catch (Exception e) {
+			System.out.println("ERROR Count Filter Review : " + e.getMessage());
+			return 0;
+		
+		}
+		return r.getCountFilter();
+	}
 	
 	
 	

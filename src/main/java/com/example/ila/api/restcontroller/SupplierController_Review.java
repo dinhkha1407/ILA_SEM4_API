@@ -30,5 +30,15 @@ public class SupplierController_Review {
 		return ILA_API_Repository.getInstance().SearchFilterReview(idProduct, review);
 	}
 	
+	@GetMapping("/CountReview")
+	public int Supplier_CountReview(int idProduct) {
+		return ILA_API_Repository.getInstance().Supplier_CountReview(idProduct);
+	}
+	
+	@GetMapping("/CountFilter")
+	public int Supplier_CountFilterReview(int idProduct , int review) {
+		return ILA_API_Repository.getInstance().Supplier_CountFilterReview(idProduct, review);
+	}
+	
 	
 }

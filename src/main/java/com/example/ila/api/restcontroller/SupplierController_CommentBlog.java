@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class SupplierController_CommentBlog {
 
 	
 	@PostMapping("/UpdateCMTBlog")
-	public boolean Update(CommentBlogView modelUpdate) {
+	public boolean Update(@RequestBody CommentBlogView modelUpdate) {
 		return ILA_API_Repository.getInstance().Update(modelUpdate);
 	}
 	@GetMapping("/GetDetailCMTBlog")

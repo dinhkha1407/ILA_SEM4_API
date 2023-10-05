@@ -1,26 +1,47 @@
 package com.example.ila.api.ModelView;
 
 import java.sql.Date;
+import java.util.List;
 
 public class CommentBlogView {
 	private int id;
+	private String idAccount;
 	private int idBlog;
-	private int idAccount;
-	private String comment;
-	private String reply;
-	private Date commentDate;  
-	private Date replyDate;
-	
-	
-	//account
-	private String nameCus;
-	private String nameSupp;
-	private int idCus;
+	private String Comment;
+	private Date DateCreate;
+	private int IndC;
+	private int MnC;
+	private String UserName;
+	private int status;
+	public List<CommentBlogView> subComment;
+	public CommentBlogView() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public CommentBlogView(int id, String idAccount, int idBlog, String comment, Date dateCreate, int indC, int mnC,
+			String userName,int status) {
+		super();
+		this.id = id;
+		this.idAccount = idAccount;
+		this.idBlog = idBlog;
+		Comment = comment;
+		DateCreate = dateCreate;
+		IndC = indC;
+		MnC = mnC;
+		UserName = userName;
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getIdAccount() {
+		return idAccount;
+	}
+	public void setIdAccount(String idAccount) {
+		this.idAccount = idAccount;
 	}
 	public int getIdBlog() {
 		return idBlog;
@@ -28,72 +49,44 @@ public class CommentBlogView {
 	public void setIdBlog(int idBlog) {
 		this.idBlog = idBlog;
 	}
-	public int getIdAccount() {
-		return idAccount;
-	}
-	public void setIdAccount(int idAccount) {
-		this.idAccount = idAccount;
-	}
 	public String getComment() {
-		return comment;
+		return Comment;
 	}
 	public void setComment(String comment) {
-		this.comment = comment;
+		Comment = comment;
 	}
-	public String getReply() {
-		return reply;
+	public Date getDateCreate() {
+		return DateCreate;
 	}
-	public void setReply(String reply) {
-		this.reply = reply;
+	public void setDateCreate(Date dateCreate) {
+		DateCreate = dateCreate;
 	}
-	public Date getCommentDate() {
-		return commentDate;
+	public int getIndC() {
+		return IndC;
 	}
-	public void setCommentDate(Date commentDate) {
-		this.commentDate = commentDate;
+	public void setIndC(int indC) {
+		IndC = indC;
 	}
-	public Date getReplyDate() {
-		return replyDate;
+	public int getMnC() {
+		return MnC;
 	}
-	public void setReplyDate(Date replyDate) {
-		this.replyDate = replyDate;
+	public void setMnC(int mnC) {
+		MnC = mnC;
 	}
-	public String getNameCus() {
-		return nameCus;
+	public String getUserName() {
+		return UserName;
 	}
-	public void setNameCus(String nameCus) {
-		this.nameCus = nameCus;
+	public void setUserName(String userName) {
+		UserName = userName;
 	}
-	public String getNameSupp() {
-		return nameSupp;
+	public int getStatus() {
+		return status;
 	}
-	public void setNameSupp(String nameSupp) {
-		this.nameSupp = nameSupp;
+	public void setStatus(int status) {
+		this.status = status;
 	}
-	public int getIdCus() {
-		return idCus;
-	}
-	public void setIdCus(int idCus) {
-		this.idCus = idCus;
-	}
-	public CommentBlogView(int id, int idBlog, int idAccount, String comment, String reply, Date commentDate,
-			Date replyDate, String nameCus, String nameSupp, int idCus) {
-		super();
-		this.id = id;
-		this.idBlog = idBlog;
-		this.idAccount = idAccount;
-		this.comment = comment;
-		this.reply = reply;
-		this.commentDate = commentDate;
-		this.replyDate = replyDate;
-		this.nameCus = nameCus;
-		this.nameSupp = nameSupp;
-		this.idCus = idCus;
-	}
-	public CommentBlogView() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+	
 	
 	
 	

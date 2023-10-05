@@ -4,6 +4,18 @@ public class InvoiceDetails {
 	private int id;
 	private int idInvoice;
 	private int idCart;
+	private int isStatus;
+	
+	public InvoiceDetails(int isStatus) {
+		super();
+		this.isStatus = isStatus;
+	}
+	public int getIsStatus() {
+		return isStatus;
+	}
+	public void setIsStatus(int isStatus) {
+		this.isStatus = isStatus;
+	}
 	public int getId() {
 		return id;
 	}

@@ -10,6 +10,7 @@ public class Blog {
 	private Date createDate;
 	private int idAccount;
 	private int userCreate;
+	private int isStatus;
 	public int getId() {
 		return id;
 	}
@@ -52,8 +53,14 @@ public class Blog {
 	public void setUserCreate(int userCreate) {
 		this.userCreate = userCreate;
 	}
-	public Blog(int id, String title, String image, String description, Date createDate, int idAccount,
-			int userCreate) {
+	public int getIsStatus() {
+		return isStatus;
+	}
+	public void setIsStatus(int isStatus) {
+		this.isStatus = isStatus;
+	}
+	public Blog(int id, String title, String image, String description, Date createDate, int idAccount, int userCreate,
+			int isStatus) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -62,11 +69,14 @@ public class Blog {
 		this.createDate = createDate;
 		this.idAccount = idAccount;
 		this.userCreate = userCreate;
+		this.isStatus = isStatus;
 	}
 	public Blog() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	
 	
 	

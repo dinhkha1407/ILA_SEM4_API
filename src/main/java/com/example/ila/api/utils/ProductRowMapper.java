@@ -23,6 +23,7 @@ public class ProductRowMapper implements RowMapper<Product> {
 		p.setIdSupplier(rs.getInt("idSupplier"));
 		p.setIsActive(rs.getInt("isActive"));
 		p.setIdcate(rs.getInt("idcate"));
+		p.setCountID(rs.getInt("countID"));
 		return p;
 	}
 

@@ -4,6 +4,7 @@ public class Admin {
 	private int id;
 	private String username;
 	private String password;
+	private String email;
 	public int getId() {
 		return id;
 	}
@@ -22,11 +23,18 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Admin(int id, String username, String password) {
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Admin(int id, String username, String password, String email) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.email = email;
 	}
 	public Admin() {
 		super();

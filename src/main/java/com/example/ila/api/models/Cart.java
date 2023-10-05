@@ -9,6 +9,13 @@ public class Cart {
 	private int Amount;
 	private BigDecimal Price;
 	private boolean Status;
+	private int countCart;
+	public int getCountCart() {
+		return countCart;
+	}
+	public void setCountCart(int countCart) {
+		this.countCart = countCart;
+	}
 	public Cart(int id, int idAccount, int idProduct, int amount, BigDecimal price, boolean status) {
 		super();
 		this.id = id;

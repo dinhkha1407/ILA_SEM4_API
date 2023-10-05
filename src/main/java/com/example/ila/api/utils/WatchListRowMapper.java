@@ -16,6 +16,7 @@ public class WatchListRowMapper implements RowMapper<WatchList> {
 		wat.setIdProduct(rs.getInt("idproduct"));
 		wat.setIdAccount(rs.getInt("idAccount"));
 		wat.setCreateDate(rs.getDate("createDate"));
+		wat.setCountWatch(rs.getInt("countWatch"));
 		return wat;
 	}
 

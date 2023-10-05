@@ -1,19 +1,57 @@
 package com.example.ila.api.models;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 
 public class InvoiceSupplier {
 	private int id;
+	private int idSupplier;
+	private BigDecimal price;
+	private Date createDate;
 	private int idInvoice;
-	private BigDecimal priceVoucherA;
-	private BigDecimal amountReceived;
-	private BigDecimal totalA;
-	private BigDecimal totalS;
+	private int status;
+	private int sttInvoice;
+	
+	public InvoiceSupplier(int id, int idSupplier, BigDecimal price, Date createDate, int idInvoice, int status,
+			int sttInvoice) {
+		super();
+		this.id = id;
+		this.idSupplier = idSupplier;
+		this.price = price;
+		this.createDate = createDate;
+		this.idInvoice = idInvoice;
+		this.status = status;
+		this.sttInvoice = sttInvoice;
+	}
+	public int getSttInvoice() {
+		return sttInvoice;
+	}
+	public void setSttInvoice(int sttInvoice) {
+		this.sttInvoice = sttInvoice;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getIdSupplier() {
+		return idSupplier;
+	}
+	public void setIdSupplier(int idSupplier) {
+		this.idSupplier = idSupplier;
+	}
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 	public int getIdInvoice() {
 		return idInvoice;
@@ -21,46 +59,17 @@ public class InvoiceSupplier {
 	public void setIdInvoice(int idInvoice) {
 		this.idInvoice = idInvoice;
 	}
-	public BigDecimal getPriceVoucherA() {
-		return priceVoucherA;
+	public int getStatus() {
+		return status;
 	}
-	public void setPriceVoucherA(BigDecimal priceVoucherA) {
-		this.priceVoucherA = priceVoucherA;
+	public void setStatus(int status) {
+		this.status = status;
 	}
-	public BigDecimal getAmountReceived() {
-		return amountReceived;
-	}
-	public void setAmountReceived(BigDecimal amountReceived) {
-		this.amountReceived = amountReceived;
-	}
-	public BigDecimal getTotalA() {
-		return totalA;
-	}
-	public void setTotalA(BigDecimal totalA) {
-		this.totalA = totalA;
-	}
-	public BigDecimal getTotalS() {
-		return totalS;
-	}
-	public void setTotalS(BigDecimal totalS) {
-		this.totalS = totalS;
-	}
-	public InvoiceSupplier(int id, int idInvoice, BigDecimal priceVoucherA, BigDecimal amountReceived,
-			BigDecimal totalA, BigDecimal totalS) {
-		super();
-		this.id = id;
-		this.idInvoice = idInvoice;
-		this.priceVoucherA = priceVoucherA;
-		this.amountReceived = amountReceived;
-		this.totalA = totalA;
-		this.totalS = totalS;
-	}
+	
 	public InvoiceSupplier() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 	
 	
 }

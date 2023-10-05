@@ -17,6 +17,8 @@ public class ReviewRowMapper implements RowMapper<Review> {
 		rev.setIdProduct(rs.getInt("idProduct"));
 		rev.setReview(rs.getInt("review"));
 		rev.setCreateDate(rs.getDate("createDate"));
+		rev.setCountReview(rs.getInt("countReview"));
+		rev.setCountFilter(rs.getInt("countFilter"));
 		return rev;
 	}
 

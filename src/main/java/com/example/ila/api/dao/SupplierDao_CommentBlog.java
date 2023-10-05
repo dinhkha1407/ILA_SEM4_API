@@ -42,8 +42,8 @@ public class SupplierDao_CommentBlog implements IDataRepository<CommentBlogView>
 		boolean Check = false;
 		try {
 			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
-			jdbcTemplateObject.update(StringValue.Supplier_UpdateCommentBlog,
-				modelUpdate.getReply(), modelUpdate.getReplyDate(), modelUpdate.getId());
+			//jdbcTemplateObject.update(StringValue.Supplier_UpdateCommentBlog,
+				//modelUpdate.getReply(), modelUpdate.getReplyDate(), modelUpdate.getId());
 		} catch (Exception e) {
 			Check = false;
 			System.out.println("ERROR Update CommentBlog");
@@ -80,12 +80,12 @@ public class SupplierDao_CommentBlog implements IDataRepository<CommentBlogView>
 							CommentBlogView cmtv = new CommentBlogView();
 							cmtv.setId(rs.getInt("id"));
 							cmtv.setComment(rs.getString("comment"));
-							cmtv.setReply(rs.getString("reply"));
-							cmtv.setCommentDate(rs.getDate("commentDate"));
-							cmtv.setReplyDate(rs.getDate("replyDate"));
-							cmtv.setNameCus(rs.getString("nameCus"));
-							cmtv.setNameSupp(rs.getString("nameSupp"));
-							cmtv.setIdCus(rs.getInt("idCus"));
+							//cmtv.setReply(rs.getString("reply"));
+							//cmtv.setCommentDate(rs.getDate("commentDate"));
+							//cmtv.setReplyDate(rs.getDate("replyDate"));
+							//cmtv.setNameCus(rs.getString("nameCus"));
+							//cmtv.setNameSupp(rs.getString("nameSupp"));
+							//cmtv.setIdCus(rs.getInt("idCus"));
 							return cmtv;
 						}
 				
@@ -109,7 +109,7 @@ public class SupplierDao_CommentBlog implements IDataRepository<CommentBlogView>
 						@Override
 						public CommentBlogView mapRow(ResultSet rs, int rowNum) throws SQLException {
 							CommentBlogView c = new CommentBlogView();
-							c.setReply(rs.getString("reply"));
+							//c.setReply(rs.getString("reply"));
 							return c;
 						}
 			},id );

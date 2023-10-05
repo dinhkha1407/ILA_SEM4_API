@@ -5,25 +5,19 @@ import java.sql.Date;
 
 public class Voucher {
 	private String id;
-	private String coupon;
 	private BigDecimal condition;
 	private int discount;
 	private String usercreate;
 	private Date startDate;
 	private Date endDate;
-	private boolean isActive;
+	private int isActive;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getCoupon() {
-		return coupon;
-	}
-	public void setCoupon(String coupon) {
-		this.coupon = coupon;
-	}
+	
 	public BigDecimal getCondition() {
 		return condition;
 	}
@@ -54,17 +48,17 @@ public class Voucher {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public boolean isActive() {
+	public int getIsActive() {
 		return isActive;
 	}
-	public void setActive(boolean isActive) {
+	public void setIsActive(int isActive) {
 		this.isActive = isActive;
 	}
 	public Voucher(String id, String coupon, BigDecimal condition, int discount, String usercreate, Date startDate,
-			Date endDate, boolean isActive) {
+			Date endDate, int isActive) {
 		super();
 		this.id = id;
-		this.coupon = coupon;
+		
 		this.condition = condition;
 		this.discount = discount;
 		this.usercreate = usercreate;

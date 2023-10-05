@@ -17,6 +17,9 @@ public class ProductView {
 	
 	//category
 	private String nameCate;
+	
+	//supplier
+	private String nameSupp;
 
 	//discount
 	private BigDecimal discount;
@@ -93,6 +96,12 @@ public class ProductView {
 	public void setNameCate(String nameCate) {
 		this.nameCate = nameCate;
 	}
+	public String getNameSupp() {
+		return nameSupp;
+	}
+	public void setNameSupp(String nameSupp) {
+		this.nameSupp = nameSupp;
+	}
 	public BigDecimal getDiscount() {
 		return discount;
 	}
@@ -107,7 +116,7 @@ public class ProductView {
 	}
 	public ProductView(int id, String title, String image, String image1, String image2, String image3,
 			String description, BigDecimal price, int isActive, int idcate, int idSupplier, String nameCate,
-			BigDecimal discount, BigDecimal finalPrice) {
+			String nameSupp, BigDecimal discount, BigDecimal finalPrice) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -121,6 +130,7 @@ public class ProductView {
 		this.idcate = idcate;
 		this.idSupplier = idSupplier;
 		this.nameCate = nameCate;
+		this.nameSupp = nameSupp;
 		this.discount = discount;
 		this.finalPrice = finalPrice;
 	}
@@ -128,6 +138,8 @@ public class ProductView {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	
 }

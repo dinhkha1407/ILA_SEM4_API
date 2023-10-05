@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,13 @@ import com.example.ila.api.repository.ILA_API_Repository;
 public class SupplierController_Voucher {
 	
 	@PostMapping("/InsertVoucher")
-	public boolean Insert(Voucher modelInsert) {
+	public boolean Insert(@RequestBody Voucher modelInsert) {
 		return ILA_API_Repository.getInstance().Insert(modelInsert);
 	}
 	
 	
 	@PostMapping("/UpdateVoucher")
-	public boolean Update(Voucher modelUpdate) {
+	public boolean Update(@RequestBody Voucher modelUpdate) {
 		return ILA_API_Repository.getInstance().Update(modelUpdate);
 	}
 	

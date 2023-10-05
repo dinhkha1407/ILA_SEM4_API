@@ -14,6 +14,13 @@ public class Product {
 	private int idSupplier;
 	private int isActive;
 	private int idcate;
+	private int countID;
+	public int getCountID() {
+		return countID;
+	}
+	public void setCountID(int countID) {
+		this.countID = countID;
+	}
 	public int getId() {
 		return id;
 	}

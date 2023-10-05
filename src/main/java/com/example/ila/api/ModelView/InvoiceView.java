@@ -25,6 +25,54 @@ public class InvoiceView {
 	private BigDecimal amountReceived;
 	private BigDecimal totalA;
 	private BigDecimal totalS;
+	 
+	
+	
+	//NEW - 30/9/2023
+	private BigDecimal priceOrder;
+	private int idInvoiceDetail;
+	private String address;
+	private BigDecimal TotalOrderAmount;
+	private BigDecimal TotalAmountOfProduct;
+	private BigDecimal RefundtoCustomers;
+	private int idSupplier;
+	
+	public InvoiceView(int id, String nameCus, String voucherA, String voucherS, BigDecimal totalPrice, Date createDate,
+			int isStatus, String nameProduct, BigDecimal unitPrice, BigDecimal amount, BigDecimal price, int idInvoice,
+			BigDecimal priceVoucherA, BigDecimal amountReceived, BigDecimal totalA, BigDecimal totalS,
+			BigDecimal priceOrder, int idInvoiceDetail, String address, BigDecimal totalOrderAmount,
+			BigDecimal totalAmountOfProduct, BigDecimal refundtoCustomers, int idSupplier) {
+		super();
+		this.id = id;
+		this.nameCus = nameCus;
+		VoucherA = voucherA;
+		VoucherS = voucherS;
+		TotalPrice = totalPrice;
+		this.createDate = createDate;
+		this.isStatus = isStatus;
+		this.nameProduct = nameProduct;
+		this.unitPrice = unitPrice;
+		Amount = amount;
+		Price = price;
+		this.idInvoice = idInvoice;
+		this.priceVoucherA = priceVoucherA;
+		this.amountReceived = amountReceived;
+		this.totalA = totalA;
+		this.totalS = totalS;
+		this.priceOrder = priceOrder;
+		this.idInvoiceDetail = idInvoiceDetail;
+		this.address = address;
+		TotalOrderAmount = totalOrderAmount;
+		TotalAmountOfProduct = totalAmountOfProduct;
+		RefundtoCustomers = refundtoCustomers;
+		this.idSupplier = idSupplier;
+	}
+	public int getIdSupplier() {
+		return idSupplier;
+	}
+	public void setIdSupplier(int idSupplier) {
+		this.idSupplier = idSupplier;
+	}
 	public int getId() {
 		return id;
 	}
@@ -121,33 +169,49 @@ public class InvoiceView {
 	public void setTotalS(BigDecimal totalS) {
 		this.totalS = totalS;
 	}
-	public InvoiceView(int id, String nameCus, String voucherA, String voucherS, BigDecimal totalPrice, Date createDate,
-			int isStatus, String nameProduct, BigDecimal unitPrice, BigDecimal amount, BigDecimal price, int idInvoice,
-			BigDecimal priceVoucherA, BigDecimal amountReceived, BigDecimal totalA, BigDecimal totalS) {
-		super();
-		this.id = id;
-		this.nameCus = nameCus;
-		VoucherA = voucherA;
-		VoucherS = voucherS;
-		TotalPrice = totalPrice;
-		this.createDate = createDate;
-		this.isStatus = isStatus;
-		this.nameProduct = nameProduct;
-		this.unitPrice = unitPrice;
-		Amount = amount;
-		Price = price;
-		this.idInvoice = idInvoice;
-		this.priceVoucherA = priceVoucherA;
-		this.amountReceived = amountReceived;
-		this.totalA = totalA;
-		this.totalS = totalS;
+	public BigDecimal getPriceOrder() {
+		return priceOrder;
 	}
+	public void setPriceOrder(BigDecimal priceOrder) {
+		this.priceOrder = priceOrder;
+	}
+	public int getIdInvoiceDetail() {
+		return idInvoiceDetail;
+	}
+	public void setIdInvoiceDetail(int idInvoiceDetail) {
+		this.idInvoiceDetail = idInvoiceDetail;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public BigDecimal getTotalOrderAmount() {
+		return TotalOrderAmount;
+	}
+	public void setTotalOrderAmount(BigDecimal totalOrderAmount) {
+		TotalOrderAmount = totalOrderAmount;
+	}
+	public BigDecimal getTotalAmountOfProduct() {
+		return TotalAmountOfProduct;
+	}
+	public void setTotalAmountOfProduct(BigDecimal totalAmountOfProduct) {
+		TotalAmountOfProduct = totalAmountOfProduct;
+	}
+	public BigDecimal getRefundtoCustomers() {
+		return RefundtoCustomers;
+	}
+	public void setRefundtoCustomers(BigDecimal refundtoCustomers) {
+		RefundtoCustomers = refundtoCustomers;
+	}
+	
 	public InvoiceView() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-
+	
 	
 	
 	

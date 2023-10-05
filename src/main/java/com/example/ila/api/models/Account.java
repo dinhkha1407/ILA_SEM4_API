@@ -10,7 +10,7 @@ public class Account {
 	private String name;
 	private String phone;
 	private String email;
-	private String address;
+	
 	private Date createDate;
 	private boolean isActive;
 	
@@ -56,12 +56,7 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -80,7 +75,7 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 	public Account(int id, String avatar, String username, String password, String name, String phone, String email,
-			String address, Date createDate, boolean isActive) {
+			 Date createDate, boolean isActive) {
 		super();
 		this.id = id;
 		this.avatar = avatar;
@@ -89,7 +84,7 @@ public class Account {
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
-		this.address = address;
+		
 		this.createDate = createDate;
 		this.isActive = isActive;
 		

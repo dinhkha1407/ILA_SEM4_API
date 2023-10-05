@@ -10,7 +10,7 @@ public class Discount {
 	private Date dateEnd;
 	private int idProduct;
 	private BigDecimal priceSale;
-	private boolean isStatus;
+	private int isStatus;
 	public int getId() {
 		return id;
 	}
@@ -47,14 +47,14 @@ public class Discount {
 	public void setPriceSale(BigDecimal priceSale) {
 		this.priceSale = priceSale;
 	}
-	public boolean isStatus() {
+	public int getIsStatus() {
 		return isStatus;
 	}
-	public void setStatus(boolean isStatus) {
+	public void setIsStatus(int isStatus) {
 		this.isStatus = isStatus;
 	}
 	public Discount(int id, BigDecimal discount, Date dateBegin, Date dateEnd, int idProduct, BigDecimal priceSale,
-			boolean isStatus) {
+			int isStatus) {
 		super();
 		this.id = id;
 		this.discount = discount;

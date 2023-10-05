@@ -37,6 +37,7 @@ public class SupplierDao_Blog implements IDataRepository<Blog> {
 		} catch (Exception e) {
 			Check = false;
 			System.out.println("ERROR INSERT Blog");
+			System.out.println(e.getMessage());
 		}
 		return Check;
 	}
@@ -52,6 +53,7 @@ public class SupplierDao_Blog implements IDataRepository<Blog> {
 		} catch (Exception e) {
 			Check = false;
 			System.out.println("ERROR Update Blog");
+			System.out.println(e.getMessage());
 		}
 		return Check;
 	}
@@ -82,6 +84,7 @@ public class SupplierDao_Blog implements IDataRepository<Blog> {
 			ls.addAll(b);
 		} catch (Exception e) {
 			System.out.println("ERROR select Blog");
+			System.out.println(e.getMessage());
 		}
 		return ls; 
 	}
@@ -93,8 +96,24 @@ public class SupplierDao_Blog implements IDataRepository<Blog> {
 			b = jdbcTemplateObject.queryForObject(StringValue.Supplier_DetailBlog, new BlogRowMapper(), id);
 		} catch (Exception e) {
 			System.out.println("ERROR select DetailBlog");
+			System.out.println(e.getMessage());
 		}
 		return b;
 	}
+	
+	
+	public List<Blog> GetFilterBlog( int userCreate , int isStatus ){
+		List<Blog> ls = new ArrayList<>();
+		try {
+			jdbcTemplateObject = new JdbcTemplate(DatabaseConnect.getInstance().dbDataSource());
+			List<Blog> b = jdbcTemplateObject.query(StringValue.Supplier_FilterBlog, new BlogRowMapper(), userCreate, isStatus);
+			ls.addAll(b);
+		} catch (Exception e) {
+			System.out.println("ERROR Filter Blog");
+			System.out.println(e.getMessage());
+		}
+		return ls; 
+	}
+	
 	
 }
